@@ -1,0 +1,57 @@
+<ng-container *ngIf="data$ | async as data">
+  <div class="register-container">
+    <div class="container page">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 col-sm-12">
+          <h1 class="text-sm-center">Sign Up</h1>
+
+          <p class="text-sm-center">
+            <a routerLink="/auth/login">Have an account?</a>
+          </p>
+
+          <it-server-exceptions
+            *ngIf="data.serverExceptions"
+            [serverExceptions]="data.serverExceptions"
+          ></it-server-exceptions>
+
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              formControlName="email"
+            />
+
+            <input
+              type="password"
+              class="form-control mt-2"
+              placeholder="Password"
+              formControlName="password"
+            />
+
+            <input
+              type="password"
+              class="form-control mt-2"
+              placeholder="Repeat password"
+              formControlName="repeatPassword"
+            />
+            <div
+              *ngIf="form.get('repeatPassword')?.errors?.['confirmedValidator']"
+            >
+              Passwords did not match
+            </div>
+
+            <button
+              type="submit"
+              style="float: right"
+              class="btn btn-lg btn-primary mt-2"
+              [disabled]="data.isSubmitting"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

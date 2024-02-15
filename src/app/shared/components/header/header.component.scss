@@ -1,0 +1,133 @@
+.search-btn .span,
+.header .btn {
+  display: none;
+}
+
+.header {
+  position: relative;
+  padding-block: 25px;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .wrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.search-btn {
+  font-size: 28px;
+}
+
+.search-btn ion-icon {
+  --ionicon-stroke-width: 50px;
+}
+
+.nav-toggle-btn .span {
+  background-color: var(--eerie-black);
+  width: 30px;
+  height: 3px;
+  transition: var(--transition-1);
+}
+
+.nav-toggle-btn .span:not(:last-child) {
+  margin-block-end: 7px;
+}
+
+.nav-toggle-btn.active .span.two {
+  opacity: 0;
+}
+
+.nav-toggle-btn.active .span.one {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.nav-toggle-btn.active .span.three {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+.navbar {
+  background-color: var(--eerie-black);
+  color: var(--white);
+  position: absolute;
+  top: calc(100% - 20px);
+  right: 0;
+  min-width: 180px;
+  padding: 15px 10px;
+  border-radius: var(--radius-16);
+  transform: translateY(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-1);
+  z-index: 2;
+}
+
+.navbar.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar-link {
+  text-align: right;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  padding: 5px;
+}
+
+@media (min-width: 575px) {
+  .header {
+    padding-block: 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-toggle-btn {
+    display: none;
+  }
+
+  .search-btn .span,
+  .header .btn {
+    display: block;
+  }
+
+  .header .wrapper {
+    gap: 10px;
+  }
+
+  .search-btn,
+  .header .btn {
+    --fs-6: 1.8rem;
+    padding: 6px 20px;
+  }
+
+  .search-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--cultured);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+    border-radius: var(--radius-pill);
+    transition: var(--transition-1);
+  }
+
+  .search-btn:is(:hover, :focus) {
+    background-color: var(--gainsboro);
+  }
+
+  .navbar,
+  .navbar.active {
+    all: unset;
+    margin-inline: auto 12px;
+  }
+
+  .navbar-list {
+    display: flex;
+    gap: 8px;
+  }
+}
