@@ -8,7 +8,7 @@ import { AuthResponse } from '../types/auth-response.type';
   providedIn: 'root',
 })
 export class AuthService {
-  private authUrl = 'https://localhost:7068';
+  private authUrl = 'https://localhost:80';
 
   constructor(private http: HttpClient) {}
 

@@ -71,7 +71,12 @@
               "browserTarget": "in-touch-ui:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options":{
+            "sslKey": "src/https/private-key.key",
+            "sslCert": "src/https/certificate.crt",
+            "ssl": false
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
